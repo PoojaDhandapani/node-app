@@ -1,61 +1,25 @@
+// 
 var express = require("express");
 
 var app = express();
 
+
+
 const axios = require("axios");
 
-axios.post("http://localhost:9090/visualapi", {
-
-  content_type : "application/json",
-
-  method: "get",
-
-  url: "https://trial.free.beeceptor.com/trial",
-
-  headers: [
-
-      {
-
-          "key": "Accept",
-
-          "value": "*/*",
-
-          "description": "Accept"
-
-      },
-
-      {
-
-          "key": "Accept-Encoding",
-
-          "value": "gzip,deflate",
-
-          "description": "Accept-Encoding"
-
-      },
-
-      {
-
-          "key": "Connection",
-
-          "value": "keep-alive",
-
-          "description": "Connection"
-
-      }
-
-  ],
-
-  data: {
 
 
+axios.get("https://jsonplaceholder.typicode.com/posts", {
+
+  params: 
+    {"id": 100},
+  headers:
+    {
+      'Authorization': 'Bearer ' + "qwerty123"
   },
-
-  params: [
-
-  ],
-
-  auth: {}
+  method: 'get',
+  url: 'https://jsonplaceholder.typicode.com/posts',
+  body:{'content-type': 'application/x-www-form-urlencoded'}
 
 }).then((res)=>{
 
@@ -69,4 +33,4 @@ axios.post("http://localhost:9090/visualapi", {
 
 
 
-app.listen("8080", () => console.log("Running at 5050"));
+app.listen("5050", () => console.log("Running at 5050"))
